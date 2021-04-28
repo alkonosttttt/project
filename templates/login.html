@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Вход
+{% endblock %}
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'registration.css' %}">
+
+{% endblock %}
+
+{% block content %}
+<div id="content">
+
+            <form  method="POST">
+                {% csrf_token %}
+                <p id="text1">Вход</p>
+                <p id="text2">Введите логин</p>
+                <input type="text" name="login" >
+                <p id="text2">Введите пароль</p>
+                <input type="password" name="password" >
+                <button>Войти</button>
+            </form>
+
+</div>
+
+{% endblock %}

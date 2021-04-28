@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Обратная связь{% endblock %}
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'feedback.css' %}">
+
+{% endblock %}
+
+{% block content %}
+    <div id="content">
+        {% if form %}
+        <form method="post">
+        <p id="text1">Оставьте ваш отзыв</p>
+        {% csrf_token %}
+            <p id="text2">ФИО</p>
+            {{ form.fio }}
+            <p id="text2">Город</p>
+            {{ form.city }}
+            <p id="text2">Телефон</p>
+            {{ form.phone }}
+            <p id="text2">Пол:</p>
+            <div id="radio">
+                <input type="radio" name="gender" value="1">Мужской
+                <input type="radio" name="gender" value="2">Женский
+            </div>
+            <p id="text2">О какой услуге Вы хотите оставить отзыв?</p>
+            {{ form.service }}
+            <p id="text2">Оставьте ваш отзыв</p>
+            {{ form.text }}
+            <p id="text2">Получать новости о новых предложениях на электронную почту?</p>
+            {{ form.notice }}
+            <p id="text2">Адрес электронной почты</p>
+            {{ form.email }}
+            <button  type="submit" name="sub_button" id="b1"><p id="p1">Отправить</p></button>
+
+
+    </form>
+        {% else %}
+            <div id="form_data">
+            <p id="text1">Спасибо за Ваш отзыв!</p>
+            <ul>
+            <p id="text2">Ваши данные:</p>
+                <li>{{ data.fio }}</li>
+                <li>{{ data.city }}</li>
+                <li>{{ data.phone }}</li>
+                <li>{% if data.notice %}
+                     {{ data.email }}
+                {% else %}
+                    "Не получать сообщения о новых предложениях
+                {% endif %}</li>
+                <p id="text2">Отзыв:</p>
+                <li>{{ data.service }}</li>
+                <li>{{ data.text }}</li>
+
+
+            </ul>
+            </div>
+        {% endif %}
+
+    </div>
+
+
+
+    <script>
+    let el = document.getElementById('p1')
+    el.onmouseover = function() {
+        el.setAttribute("style", "color: green;")
+    }
+    el.onmouseout = function() {
+        el.setAttribute("style", "")
+    }
+
+    let elem_fio = document.getElementById('id_fio')
+    elem_fio.onfocus = function() {
+        elem_fio.setAttribute("style", "background: lightgrey;")
+    }
+    elem_fio.onblur = function() {
+        elem_fio.setAttribute("style", "")
+    }
+
+    let elem_phone = document.getElementById('id_phone')
+    elem_phone.onfocus = function() {
+        elem_phone.setAttribute("style", "background: lightgrey;")
+    }
+    elem_phone.onblur = function() {
+        elem_phone.setAttribute("style", "")
+    }
+
+    let elem_city = document.getElementById('id_city')
+    elem_city.onfocus = function() {
+        elem_city.setAttribute("style", "background: lightgrey;")
+    }
+    elem_city.onblur = function() {
+        elem_city.setAttribute("style", "")
+    }
+    </script>
+
+
+{% endblock  %}

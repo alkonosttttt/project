@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Полезные ресурсы{% endblock %}
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'links.css' %}">
+{% endblock %}
+{% block content %}
+    <div id="content">
+        <p id="title">Полезные ресурсы</p>
+        <div id="link">
+
+
+            <div class="rec">
+                <a target="_blank" href="https://fitnesstop.ru/blog/kak-pravilno-begat">
+                    <img src="{% static 'partner1.png' %}" alt="src1">
+                </a>
+            </div>
+
+            <div class="rec">
+                <a target="_blank" href="https://fitnesstop.ru/blog/kak-pravilno-begat">
+                    <img src="{% static 'partner4.png' %}" alt="src1">
+                </a>
+            </div>
+
+            <div class="rec">
+                <a target="_blank" href="https://fitnesstop.ru/blog/kak-pravilno-begat">
+                    <img src="{% static 'partner2.png' %}" alt="src1">
+                </a>
+            </div>
+
+            <div class="rec">
+                <a target="_blank" href="https://fitnesstop.ru/blog/kak-pravilno-begat">
+                    <img src="{% static 'partner5.png' %}" alt="src1">
+                </a>
+            </div>
+
+            <div class="rec">
+                <a target="_blank" href="https://fitnesstop.ru/blog/kak-pravilno-begat">
+                    <img src="{% static 'partner3.png' %}" alt="src1">
+                </a>
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Блог{% endblock %}
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'blog.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <div id="content">
+    <div id="blog">Блог</div>
+
+        {% for publication in object_list %}
+        <a href="/blog/{{ publication.slug }}/" class="title" target="_blank">{{ publication.title }} </a>
+        {% if publication.image %}
+            <img src="{{ publication.image.url }}" alt="{{ publication.title }}">
+        {% endif %}
+        <div class="short_text">{{ publication.short_text }} </div>
+        <a href="/blog/{{ publication.slug }}/" class="next" target="_blank">Читать далее</a>
+    {% endfor %}
+    </div>
+{% endblock %}

@@ -6,7 +6,12 @@ from blog.models import Publication, Comment
 
 
 class BaseView(TemplateView):
-    pass
+    def get_context_data(self, *args, **kwargs):
+        context = super(BaseView, self).get_context_data(**kwargs)
+        if self.request.user.is_staff:
+            context['admin'] = True
+
+        return context
 
 
 class PostList(ListView):

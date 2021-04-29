@@ -11,8 +11,8 @@
 {% endblock %}
 
 {% block content %}
-    <div class="content">
-        <div style="color: #6c757d;">
+    <div id="content_detail">
+        <div class="bread">
             <a href="/">Главная</a> | <a href="/blog">Блог</a> | <a
                 href="/blog/{{ publication.slug }}">{{ publication.title }}</a>
         </div>
@@ -21,28 +21,30 @@
             {{ publication.description }}
         </div>
         {% if publication.image %}
-            <img src="{{ publication.image.url }}" alt="{{ publication.title }}">
+            <img class="img_detail" src="{{ publication.image.url }}" alt="{{ publication.title }}">
         {% endif %}
 
-        <h1>Комментарии:</h1>
+        <h1 class="comm1">Комментарии</h1>
         {% for comment in publication.comments.all %}
             <div class="feedback-item">
-                <p>Комментарий от {{ comment.user }}</p>
+                <p style="color: #20c997">{{ comment.user }}</p>
                 <p>{{ comment.text }}</p>
                 <p><h6><i>{{ comment.date }}</i></h6></p>
             </div>
         {% endfor %}
-    </div>
+
     {% if request.user.is_authenticated %}
-        <div class="comment-form">
-    <h2>Оставьте комментарий</h2>
+        <h1 class="comm1">Оставьте комментарий</h1>
+
     <form method="post">
         {% csrf_token %}
         <textarea name="text" cols="30" rows="10" placeholder="Введите текст комментария"></textarea>
-        <button type="submit">Отправить</button>
+        <button id="butt" type="submit">Отправить</button>
     </form>
-</div>
+
     {% else %}
         <p><a href="/login">Авторизуйтесь</a>, чтобы оставить комментарий </p>
     {% endif %}
+    </div>
+
 {% endblock %}

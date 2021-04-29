@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Добавить публикацию{% endblock %}
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'add_article.css' %}">
+
+{% endblock %}
+
+
+
+{% block content %}
+    <div id="content">
+    <form enctype="multipart/form-data" method="post">
+        <p id="text1">Добавить публикацию</p>
+    {% csrf_token %}
+    {{ form }}
+        <input id="button" type="submit">
+    </form>
+    </div>
+{% endblock %}

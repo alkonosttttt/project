@@ -1,6 +1,7 @@
 from django.shortcuts import redirect
 from django.views.generic import TemplateView, ListView, DetailView
 
+from blog.forms import PublicationForm
 from blog.models import Publication, Comment
 
 
@@ -24,3 +25,22 @@ class PostDetail(DetailView):
         comment.text = request.POST.get("text")
         comment.save()
         return redirect(f"/blog/{self.get_object().slug}/")
+
+
+class ArticleAddView(BaseView):
+    template_name = "add_article.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = PublicationForm()
+
+        return context
+
+    def post(self, request):
+        print(request.FILES)
+        form = PublicationForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(f"/blog/{form.data.get('slug')}/")
+
+        return redirect('/')

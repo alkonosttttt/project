@@ -4,9 +4,17 @@
     align-items: center;
     margin-bottom: 90px;
 }
+#content_detail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 90px;
+    padding: 0 4%;
+}
+
 #blog {
-    margin-top: 60px;
-    margin-bottom: 10px;
+    margin-top: 50px;
+    margin-bottom: 0px;
     color: #666666;
     font-family: Arial;
     font-size: 32px;
@@ -41,6 +49,69 @@ img {
 .post {
     box-shadow: 0 10px 10px rgba(00,00,00,0.2);
 }
-h1, .feedback-item, h2, .comment{
+h1, .feedback-item, h2, .comment, a{
      color: black;
 }
+.bread, a {
+    color: #6c757d;
+    margin-top: 20px;
+}
+h1, .feedback-item, h2, .comment, a, p, button, textarea, h5 {
+    font-family: Arial;
+    color: #666666;
+}
+h1 {
+    align-self: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #666666;
+    font-size: 24px;
+}
+.img_detail {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.comm1 {
+    align-self: flex-start;
+}
+h6 {
+    color: #45459c;
+}
+p {
+   margin-top: 15px;
+    margin-bottom: 15px;
+}
+textarea {
+    font-size: 20px;
+    font-family: arial;
+    width: 99%;
+     border: 1px solid lightgray;
+    padding: 1%;
+    height: 200px;
+    border-radius: 10px;
+}
+form {
+    width: 100%;
+}
+#butt {
+    border: 1px solid lightgray;
+    width: 10%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 1%;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: arial;
+    background-color: #f1f1f1;
+}
+h1, .feedback-item, h2, .comment, a, p, button, textarea, h5 {
+    font-family: Arial;
+    color: #666666;
+}
+.feedback-item {
+    width: 99%;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 1%;
+}
+
